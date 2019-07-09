@@ -52,7 +52,7 @@ import com.solacesystems.jms.SupportedProperty;
  */
 public class TransactedJMSSession {
 
-    final String QUEUE_NAME = "nt.test.queue";
+    final String QUEUE_NAME = "test.queue";
     final String QUEUE_JNDI_NAME = "/JNDI/" + QUEUE_NAME;
     final String CONNECTION_FACTORY_JNDI_NAME = "/jms/cf/default";
 

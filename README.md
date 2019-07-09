@@ -1,8 +1,8 @@
 # solace-transacted-jms
 A sample application that demonstrates the use of local transaction rollbacks with Solace's JMS API.
-The application establishes a transacted session to read message from a queue & write them to a file. Before completing, we make the thread perform a `session.rollback()`. The end result is an empty file, and no messages removed from the queue.
+The application establishes a transacted session to read message from a queue & write them to a file. Before completing, we make the receiving thread perform a `session.rollback()`. The end result is an empty file, and no messages removed from the queue.
 
-*Optional*: You can also test Retries & Dead Message Queue (DMQ) functionality by configuring each option on the sample queue using PubSub+ Manager. In this scenario, the message is sent to the DMQ once `session.rollback()` exceeds the preset number of retries.
+**Optional**: You can also test Retries & Dead Message Queue (DMQ) functionality by appropriately configuring the sample queue using PubSub+ Manager. In this scenario, the message is sent to the DMQ once `session.rollback()` exceeds the preset number of retries.
 
 ## Prerequisites
 - An instance of Solace PubSub+
@@ -13,7 +13,6 @@ The application establishes a transacted session to read message from a queue & 
 
 ## Usage
 1. Update `src\main\resources\jndi.properties` to reflect your PubSub+ environment
-2. `mvn clean install`
-3. `mvn exec:java`
-4. Send a JMS message to `test.queue`
-5. The application receives the message in a transaction block which is subsequently rolled back. The end result is an empty file, `transacted_write.txt`.
+2. `mvn clean install exec:java`
+3. Send a JMS message to `test.queue`
+4. The application receives the message in a transaction block which is subsequently rolled back. The end result is the empty file `transacted_write.txt`.
