@@ -18,7 +18,7 @@
  */
 
 /**
- *  Solace JMS 1.1 Examples: QueueConsumerJNDI
+ *  Solace JMS 1.1 Examples: TransactedJMSSession
  */
 
 package com.solacesystems.samples;
